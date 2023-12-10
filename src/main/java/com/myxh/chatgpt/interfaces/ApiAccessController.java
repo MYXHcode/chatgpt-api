@@ -24,6 +24,7 @@ public class ApiAccessController
 
     /**
      * http://localhost:8080/authorize?username=MYXH&password=520.ILY!
+     * http://43.143.161.125:8080/authorize?username=MYXH&password=520.ILY!
      */
     @RequestMapping("/authorize")
     public ResponseEntity<Map<String, String>> authorize(String username, String password)
@@ -52,6 +53,7 @@ public class ApiAccessController
 
     /**
      * http://localhost:8080/verify?token=
+     * http://43.143.161.125:8080/verify?token=
      */
     @RequestMapping("/verify")
     public ResponseEntity<String> verify(String token)
