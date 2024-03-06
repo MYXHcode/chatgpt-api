@@ -10,7 +10,7 @@
       </Languages>
     </inspection_tool>
     <inspection_tool class="ExtractMethodRecommender" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="minLength" value="565" />
+      <option name="minLength" value="1182" />
     </inspection_tool>
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ADDITIONAL_TAGS" value="date,github,GitHub,description" />

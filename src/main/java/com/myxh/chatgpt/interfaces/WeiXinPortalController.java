@@ -20,7 +20,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author MYXH
@@ -67,7 +70,7 @@ public class WeiXinPortalController
     }
 
     /**
-     * 处理微信服务器发来的 get 请求，进行签名的验证
+     * 处理微信服务器发来的 get 请求，进行签名的验证【付费的 natapp 对接稳定，3 块钱域名，9 块钱渠道费】
      * http://myxh-chatqpt.nat300.top/wx/portal/wxa175a0b560bd00a2
      * <p>
      * appid     微信端 AppID
@@ -209,7 +212,7 @@ public class WeiXinPortalController
             ChatCompletionRequest request = new ChatCompletionRequest();
 
             // chatGLM_6b_SSE、chatglm_lite、chatglm_lite_32k、chatglm_std、chatglm_pro
-            request.setModel(Model.CHATGLM_LITE);
+            request.setModel(Model.CHATGLM_TURBO);
 
             request.setPrompt(new ArrayList<ChatCompletionRequest.Prompt>()
             {
@@ -229,7 +232,7 @@ public class WeiXinPortalController
                 CompletableFuture<String> future = openAiSession.completions(request);
                 openAiDataMap.put(content, future.get());
             }
-            catch (InterruptedException | ExecutionException e)
+            catch (Exception e)
             {
                 throw new RuntimeException(e);
             }

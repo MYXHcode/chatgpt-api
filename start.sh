@@ -1,4 +1,4 @@
-docker run -p 8080:8080 --name chatgpt-api -d myxh/chatgpt-api
+docker run -p 8080:8080 --name chatgpt-api -d myxh/chatgpt-api:1.1
 
 docker run -p 8080:8080 \
 --name chatgpt-api \
